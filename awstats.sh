@@ -159,6 +159,10 @@ function setup_cronjob(){
 		cat <<EOD >> /var/spool/cron/crontabs/www-data
 */15 * * * * /usr/lib/cgi-bin/awstats.pl -config=$host -update
 EOD
+
+	# Sets permissions on the www-data crontab file
+		chmod 600 /var/spool/cron/crontabs/www-data
+
 		echo -e '\e[01;37;42mThe awstats cronjob has been successfully created!\e[0m'
 }
 function setup_htaccess(){
