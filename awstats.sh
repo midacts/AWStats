@@ -212,6 +212,7 @@ function install_GeoIP(){
 	# Installs the prerequisite packages
 		echo
 		echo -e '\e[34;01m+++ Installing Required Packages...\e[0m'
+		apt-get update
 		apt-get -y install build-essential zlib1g-dev
 		echo -e '\e[01;37;42mThe required packages have been successfully installed!\e[0m'
 
@@ -294,6 +295,7 @@ function install_GeoCity(){
 		sed -i '/#LoadPlugin="geoip_city_/c\LoadPlugin="geoip_city_maxmind GEOIP_STANDARD /usr/local/share/GeoIP/GeoLiteCity.dat"' /etc/awstats/awstats.$host.conf
 		echo -e '\e[01;37;42mGeoLiteCity has been successfully installed!\e[0m'
 
+		echo
 		echo -e '\e[01;34m+++ Restarting the apache2 service\e[0m'
 		service apache2 restart
 		echo -e '\e[01;37;42mThe apache2 service has been successfully restarted!\e[0m'
